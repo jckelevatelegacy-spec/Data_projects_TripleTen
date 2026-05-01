@@ -1,0 +1,90 @@
+E-Commerce User Behavior & Retention Analysis (Excel Project)
+
+The goal of this project was to transform raw user activity logs into meaningful business metrics by analyzing customer 
+behavior across an e-commerce platform. The analysis focused on conversion funnel performance and cohort-based retention 
+trends to evaluate how effectively the platform converts users and retains customers over time.
+
+The Data
+
+The dataset consisted of raw event-level activity logs stored in a spreadsheet, where each row represents a user interaction 
+on the platform.
+
+raw_user_activity Sheet: each row corresponds to a single user event
+
+user_id: unique identifier for each customer
+event_type: type of activity (e.g., product view, add to cart, purchase)
+category_code: product category associated with the event
+brand: product brand
+price: product price in USD
+event_date: date of the user activity
+
+From this dataset, additional structured tables were created to support funnel and cohort analysis.
+
+The Process
+1. Conversion Funnel Analysis
+
+I began by analyzing how users move through the purchasing journey. Using a pivot table, I built a three-stage conversion 
+funnel:
+
+Product page views
+Cart interactions
+Purchases
+
+To ensure accuracy, I calculated unique user counts at each stage rather than total events. I then created calculated 
+columns to measure:
+
+Overall conversion rates
+Step-to-step conversion rates between funnel stages
+
+This provided a clear view of where users drop off in the purchasing process.
+
+2. Data Preparation for Cohort Analysis
+
+To analyze retention, I first isolated purchase events:
+
+Filtered the dataset to include only purchase activity
+Created a new purchase_activity sheet containing only relevant records
+
+Next, I calculated each user’s first purchase date using a pivot table and brought this information back into the dataset 
+using a VLOOKUP() function .
+
+I then engineered new time-based features to support cohort analysis:
+
+event_month: month of each transaction
+first_purchase_month: cohort assignment based on first purchase
+cohort_age: number of months since first purchase (using DATEDIF())
+3. Cohort Analysis & Retention Rates
+
+I grouped users into cohorts based on their first purchase month and built a pivot table to track how many users from each 
+cohort returned in subsequent months.
+
+Using this structure, I calculated retention rates by comparing the number of returning users at each cohort age to the 
+original cohort size. These calculations were organized into a dedicated retention table for clarity and analysis .
+
+4. Data Presentation & Organization
+
+To ensure the analysis was clear and professional, I:
+
+Created an Executive Summary outlining key findings and methodology
+Documented assumptions and data preparation steps
+Organized sheets logically (summary → analysis → calculations → raw data)
+Applied consistent formatting, including labeled tables, highlighted calculations, and clean layouts
+Results
+
+The conversion funnel analysis revealed how effectively users move from browsing to purchasing, highlighting key drop-off 
+points in the customer journey. This provided insight into potential areas for improving conversion rates.
+
+The cohort analysis showed how customer retention changes over time, allowing for comparison between different acquisition 
+periods. Retention trends helped identify whether newer cohorts were performing better or worse than earlier ones, providing 
+insight into customer engagement and long-term value.
+
+Conclusion
+
+This project strengthened my ability to transform raw event-level data into actionable business insights using Excel. I 
+gained hands-on experience with funnel analysis, cohort modeling, and retention metrics, as well as advanced spreadsheet 
+techniques such as pivot tables, VLOOKUP, and date-based calculations.
+
+The final deliverable presents a structured, business-focused analysis that supports decision-making around user conversion 
+and retention strategies.
+
+Please review the Excel workbook for the full analysis, including funnel metrics, cohort tables, and retention calculations.
